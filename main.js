@@ -338,3 +338,36 @@
 // towerOfHanoi(3, "A", "C", "B");
 
 // // Big-O = O(2^n)
+
+// DATA STRUCTURES
+
+// Array
+
+const arr = [1, 2, 3, "Beibarys"];
+arr.push(4); // adding at the end
+arr.unshift(0); // adding at the beginning
+arr.pop(); //remove from the end
+arr.shift(); //remove from beginning
+
+for (const item of arr) {
+  console.log(item);
+}
+
+// map, filter, reduce, concat, slice and splice
+
+const numbers = [1, 2, 3, 4, 5];
+const doubleNumbers = numbers.map((number) => number * 2);
+console.log(doubleNumbers);
+const evenNumbers = numbers.filter((number) => number % 2 === 0);
+console.log(evenNumbers);
+const sum = numbers.reduce((prev, curr) => prev + curr, 9);
+console.log(sum);
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const newArr = arr1.concat(arr2);
+console.log(newArr);
+const slice = numbers.slice(1, 4);
+console.log(slice);
+const arrSplice = [1, 2, 3, 4, 5];
+arrSplice.splice(2, 2, "a", "b");
+console.log(arrSplice);
