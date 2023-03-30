@@ -372,14 +372,340 @@
 // arrSplice.splice(2, 2, "a", "b");
 // console.log(arrSplice);
 
-// Objects
+// // Objects
 
-const obj = {
-    name: 'Bruce' ,
-    age: 25
+// const obj = {
+//   name: "Heisenberg",
+//   age: 25,
+//   sayMyName: function () {
+//     console.log(this.name);
+//   },
+// };
+// obj.hobby = "Football";
+// delete obj.hobby;
+
+// console.log(obj.name);
+// console.log(obj.age);
+// console.log(obj.hobby);
+// obj.sayMyName();
+
+// // Object.keys() .values() .entries()
+
+// const keys = Object.keys(obj);
+// console.log(keys);
+
+// const values = Object.values(obj);
+// console.log(values);
+
+// const entries = Object.entries(obj);
+// console.log(entries);
+
+// // Sets
+
+// const set = new Set([1, 2, 3]);
+// set.add(4); // adding new value to set
+// console.log(set.has(4)); // to check has the set some value (true,false)
+// set.delete(3); // delete some value
+// console.log(set.size); // check size of set
+// set.clear(); // to hide values in the set
+
+// for (const item of set) {
+//   console.log(item);
+// }
+
+// // Map
+
+// const map = new Map([["a", 1], ["b", 2]]);
+
+// map.set('c',3) // to add new key-value pair
+// console.log(map.has('a')) // to see has the map the key-value
+// map.delete('c') // to delete key-value pair
+// console.log(map.size) // to see the size of key-value pair
+// map.clear() // to clear the map
+
+// for(const [key,value] of map){
+//     console.log(`${key}: ${value}`)
+// }
+
+// // Stack implement
+
+// // peek() - get the value of the top element without removing it
+// // isEmpty() - check if the stack is empty
+// // size() - get the number of elements in the stack
+// // print() - visualize the elements in the stack
+
+// class Stack {
+//   constructor() {
+//     this.items = [];
+//   }
+
+//   push(element) {
+//     this.items.push(element);
+//   }
+
+//   pop() {
+//     return this.items.pop();
+//   }
+
+//   peek() {
+//     return this.items[this.items.length - 1];
+//   }
+
+//   isEmpty() {
+//     return this.items.length === 0;
+//   }
+
+//   size() {
+//     return this.items.length;
+//   }
+
+//   print() {
+//     console.log(this.items.toString());
+//   }
+// }
+
+// const stack = new Stack();
+// console.log(stack.isEmpty());
+
+// stack.push(20);
+// stack.push(10);
+// stack.push(30);
+
+// console.log(stack.size());
+// stack.print();
+
+// console.log(stack.pop());
+// console.log(stack.peek());
+
+// // Queue Imolementation
+
+// // peek() - get the value of the element at the front of the queue without removing it
+// // isEmpty() - check if the queue is empty
+// // size() - get the numbers of elemnts in the queue
+// // print() - visualize the elements in the queue
+
+// class Queue {
+//   constructor() {
+//     this.items = [];
+//   }
+
+//   enqueue(element) {
+//     this.items.push(element);
+//   }
+
+//   dequeue() {
+//     return this.items.shift();
+//   }
+
+//   isEmpty() {
+//     return this.items.length === 0;
+//   }
+
+//   peek() {
+//     if (!this.isEmpty()) {
+//       return this.items[0];
+//     }
+//     return null;
+//   }
+
+//   size() {
+//     return this.items.length;
+//   }
+
+//   print() {
+//     console.log(this.items.toString());
+//   }
+// }
+
+// const queue = new Queue();
+
+// console.log(queue.isEmpty());
+
+// queue.enqueue(10);
+// queue.enqueue(20);
+// queue.enqueue(30);
+// console.log(queue.size());
+// queue.print();
+
+// console.log(queue.dequeue(10));
+// console.log(queue.peek())
+
+// // Queue Implementation optimised
+
+// class Queue {
+//   constructor() {
+//     this.items = {};
+//     this.rear = 0;
+//     this.front = 0;
+//   }
+
+//   enqueue(element) {
+//     this.items[this.rear] = element;
+//     this.rear++;
+//   }
+
+//   dequeue() {
+//     const item = this.items[this.front];
+//     delete this.items[this.front];
+//     this.front++;
+//     return item;
+//   }
+
+//   isEmpty() {
+//     return this.rear - this.front === 0;
+//   }
+
+//   peek() {
+//     return this.items[this.front];
+//   }
+
+//   size() {
+//     return this.rear - this.front;
+//   }
+
+//   print() {
+//     console.log(this.items);
+//   }
+// }
+
+// const queue = new Queue();
+
+// console.log(queue.isEmpty());
+
+// queue.enqueue(10);
+// queue.enqueue(20);
+// queue.enqueue(30);
+// console.log(queue.size());
+// queue.print();
+
+// console.log(queue.dequeue());
+// console.log(queue.peek());
+
+// // Circular queue imolementation
+
+// // isFull() - check if the queue is full
+
+// class circularQueue {
+//   constructor(capacity) {
+//     this.items = new Array(capacity);
+//     this.capacity = capacity;
+//     this.currentLength = 0;
+//     this.rear = -1;
+//     this.front = -1;
+//   }
+
+//   isFull() {
+//     return this.currentLength === this.capacity;
+//   }
+
+//   isEmpty() {
+//     return this.currentLength === 0;
+//   }
+
+//   enqueue(element) {
+//     if (!this.isFull()) {
+//       this.rear = (this.rear + 1) % this.capacity;
+//       this.items[this.rear] = element;
+//       this.currentLength += 1;
+//       if (this.front === -1) {
+//         this.front = this.rear;
+//       }
+//     }
+//   }
+
+//   dequeue() {
+//     if (this.isEmpty()) {
+//       return null;
+//     }
+//     const item = this.items[this.front];
+//     this.items[this.front] = null;
+//     this.front = (this.front + 1) % this.capacity;
+//     this.currentLength -= 1;
+//     if (this.isEmpty()) {
+//       this.front = -1;
+//       this.rear = -1;
+//     }
+//     return item;
+//   }
+
+//   peek() {
+//     if (!this.isEmpty()) {
+//       return this.items[this.front];
+//     }
+//     return null;
+//   }
+
+//   print() {
+//     if (this.isEmpty()) {
+//       console.log("Queue is empty");
+//     } else {
+//       let i;
+//       let str = "";
+//       for (i = this.front; i !== this.rear; i = (i + 1) % this.capacity) {
+//         str += this.items[i] + " ";
+//       }
+//       str += this.items[i];
+//       console.log(str);
+//     }
+//   }
+// }
+
+// const queue = new circularQueue(5);
+// console.log(queue.isEmpty())
+
+// queue.enqueue(10);
+// queue.enqueue(20);
+// queue.enqueue(30);
+// queue.enqueue(40);
+// queue.enqueue(50);
+
+// console.log(queue.isFull())
+// queue.print()
+
+// console.log(queue.dequeue())
+// console.log(queue.peek())
+// queue.print()
+// queue.enqueue(60)
+// queue.print()
+
+// Linked List Implementation
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
 }
-obj.hobby = 'Football'
 
-console.log(obj.name)
-console.log(obj.age)
-console.log(obj.hobby)
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
+
+  isEmpty() {
+    return this.size === 0;
+  }
+
+  getSize() {
+    return this.size;
+  }
+
+  prepend(value) {
+    const node = new Node(value);
+    if (this.isEmpty()) {
+      this.head = node;
+    } else {
+      node.next = this.head;
+      this.head = node;
+    }
+    this.size++;
+  }
+}
+
+const list = new LinkedList();
+console.log("List is empty? ", list.isEmpty());
+console.log("List size ", list.getSize());
+list.prepend(10);
+list.prepend(20);
+list.prepend(30);
